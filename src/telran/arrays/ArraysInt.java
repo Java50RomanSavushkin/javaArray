@@ -27,7 +27,7 @@ public class ArraysInt {
 
 	public static int[] insertNumberSorted(int[] arraySorted, int number) {
 		// takes sorted array and number to insert.
-		// returns sorted array with the given number at a proper position
+		// returns sorted array with the given number at a proper position.
 		// apply the standard method of the class Arrays int binarySearch(int[]
 		// arraySorted, int key)
 		int index = Arrays.binarySearch(arraySorted, number);
