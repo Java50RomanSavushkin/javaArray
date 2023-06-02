@@ -88,7 +88,7 @@ public class ArraysTest {
 	@Test
 	void binarySearchTest() {
 
-		// int key.
+		// int key..
 		int[] src = { 10, 20, 30, 40, 50, 60, 70 };
 		assertEquals(3, Arrays.binarySearch(src, 40));
 		assertEquals(0, Arrays.binarySearch(src, 10));
