@@ -1,16 +1,16 @@
 package telran.arrays.test;
 
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
-import java.util.Arrays;
-
 import org.junit.jupiter.api.Test;
 
 import telran.arrays.ArraysInt;
 
-public class ArrayTest {
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.util.Arrays;
+
+
+
+public class ArraysTest {
 	@Test
 	void initialTest() {
 		int[] ar1 = { 1, 2, 3 };
@@ -58,7 +58,7 @@ public class ArrayTest {
 		int[] src = { 1, 2, 3, 4, 5, 6, 7 };
 		int number = 20;
 		int index = 3;
-		int[] expected1 = { 1, 2, 3, 20, 4, 5, 6, 7, };
+		int[] expected1 = { 1, 2, 3, 20, 4, 5, 6, 7 };
 		assertArrayEquals(expected1, ArraysInt.insertNumber(src, index, number));
 		number = 30;
 		index = 0;
@@ -71,15 +71,47 @@ public class ArrayTest {
 	}
 
 	@Test
-	void remmoveNumberTest() {
-		// TODO
+	void removeNumberTest() {
+		int[] src = { 1, 2, 3, 4, 5, 6, 7 };
+		int index = 3;
+		int[] expected1 = { 1, 2, 3, 5, 6, 7 };
+		assertArrayEquals(expected1, ArraysInt.removeNumber(src, index));
+		index = 0;
+		int[] expected2 = { 2, 3, 4, 5, 6, 7 };
+		assertArrayEquals(expected2, ArraysInt.removeNumber(src, index));
+		index = 4;
+		int[] expected3 = { 1, 2, 3, 4, 6, 7 };
+		assertArrayEquals(expected3, ArraysInt.removeNumber(src, index));
 	}
 
 	@Test
 	void binarySearchTest() {
-		// TODO test for understanding the standard method Arrays.binarySearch(int[]
-		// arraysSorted,
-		// int key
+
+		// int key)
+		int[] src = { 10, 20, 30, 40, 50, 60, 70 };
+		assertEquals(3, Arrays.binarySearch(src, 40));
+		assertEquals(0, Arrays.binarySearch(src, 10));
+		assertEquals(6, Arrays.binarySearch(src, 70));
+		assertEquals(-1, Arrays.binarySearch(src, 5));
+		assertEquals(-4, Arrays.binarySearch(src, 35));
+		assertEquals(-8, Arrays.binarySearch(src, 75));
 	}
 
+	@Test
+	void insertSortedTest() {
+		int[] src = { 10, 20, 30, 40, 50, 60, 70 };
+		int[] expected1 = { 10, 20, 30, 40, 40, 50, 60, 70 };
+		int[] expected2 = { 10, 10, 20, 30, 40, 50, 60, 70 };
+		int[] expected3 = { 10, 20, 30, 40, 50, 60, 70, 70 };
+		int[] expected4 = { 5, 10, 20, 30, 40, 50, 60, 70 };
+		int[] expected5 = { 10, 20, 30, 35, 40, 50, 60, 70 };
+		int[] expected6 = { 10, 20, 30, 40, 50, 60, 70, 75 };
+
+		assertArrayEquals(expected1, ArraysInt.insertNumberSorted(src, 40));
+		assertArrayEquals(expected2, ArraysInt.insertNumberSorted(src, 10));
+		assertArrayEquals(expected3, ArraysInt.insertNumberSorted(src, 70));
+		assertArrayEquals(expected4, ArraysInt.insertNumberSorted(src, 5));
+		assertArrayEquals(expected5, ArraysInt.insertNumberSorted(src, 35));
+		assertArrayEquals(expected6, ArraysInt.insertNumberSorted(src, 75));
+	}
 }
