@@ -24,6 +24,7 @@ public class InterviewTasks {
 	}
 
 	public static void sort(short[] array) {
+
 		// array - array of the positive or 0 number
 		// sorting with complexity O[N]
 		int[] helper = new int[Short.MAX_VALUE];
@@ -34,15 +35,16 @@ public class InterviewTasks {
 			helper[array[i]]++;
 		}
 		int ind = 0;
-		for (int i = 0; i < helper.length; i++) {
+		int i = 0;
+		while (ind < array.length) {
 			for (int j = 0; j < helper[i]; j++) {
 				array[ind++] = (short) i;
 			}
 		}
+		i++;
 	}
-
+   
 	public static short getMaxWithNegativePresentation(short[] array) {
-
 		// returns maximal positive number having an negative value with the same abs
 		// value, if no such numbers returns -1
 		short res = -1;
