@@ -7,7 +7,7 @@ public class ArraysInt {
 		int[] res = Arrays.copyOf(array, array.length + 1);
 		res[array.length] = number;
 		return res;
-	}
+	} 
 
 	public static int[] insertNumber(int[] array, int index, int number) {
 		int[] res = new int[array.length + 1];
